@@ -1,0 +1,76 @@
+# .NET Core / .NET 5+ / .NET 6+ / .NET 7+ build outputs
+bin/
+obj/
+out/
+build/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Rider / Visual Studio Code / VS Code
+.vscode/
+.idea/
+.vs/
+
+# Rider / Visual Studio
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# NuGet
+*.nupkg
+*.snupkg
+*.nuspec
+*.dll
+*.exe
+*.pdb
+*.cache
+*.dbmdl
+*.dbproj
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.vspscc
+
+# npm
+node_modules/
+
+# ASP.NET Core
+appsettings*.json
+.env
+*.db
+
+# User-specific files
+*.swp
+*.swo
+
+# Mac OS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Log files
+*.log
+
+# Backup files
+*.bak
+*.tmp
+*.swp
+*.swo
+
+# Other files that might be created
+*.tmp
+*.temp
+*.log
+*.pid
+*.seed
+*.key
+*.crt
+*.pfx
+*.pem
+
+# Exclude .gitignore itself
+!.gitignore
