@@ -4,9 +4,9 @@ using System.Diagnostics;
 Console.WriteLine("Starting load test...");
 
 // Number of threads
-int numThreads = 5 ;
+int numThreads = 50 ;
 // Number of requests per thread
-int requestsPerThread = 10000;
+int requestsPerThread = 5000;
 
 // List to hold the tasks
 List<Task> tasks = new List<Task>();
@@ -42,29 +42,30 @@ Console.WriteLine($"Requests per second: {requestsPerSecond:F2}");
 
 static async Task PerformLoadTest(int threadIndex, int requestsPerThread)
 {
-    var client = new RestClient("http://localhost:5000/api/Dapper/insert");
-    
-  //  var client = new RestClient("http://localhost:5000/api/Ef/insert");
+    using var client = new HttpClient();
+    client.BaseAddress = new Uri("http://localhost:5000/");
+
     for (int i = 0; i < requestsPerThread; i++)
     {
-        var request = new RestRequest
+        try
         {
-            Method = Method.POST,            
-        };
+            HttpResponseMessage response = await client.PostAsync("api/ef/insert", null);
+            
 
-
-        IRestResponse response = await client.ExecuteAsync(request);
-
-        if (response.IsSuccessful)
-        {
-           // Console.WriteLine($"Thread {threadIndex} - Request {i} succeeded.");
+            if (response.IsSuccessStatusCode)
+            {
+                // Console.WriteLine($"Thread {threadIndex} - Request {i} succeeded.");
+            }
+            else
+            {
+                Console.WriteLine($"Thread {threadIndex} - Request {i} failed: {response.StatusCode}");
+            }
         }
-        else
+        catch (HttpRequestException e)
         {
-            Console.WriteLine($"Thread {threadIndex} - Request {i} failed: {response.ErrorMessage}");
+            Console.WriteLine($"Thread {threadIndex} - Request {i} failed: {e.Message}");
         }
 
-        // Optional: Add a small delay between requests
-        // await Task.Delay(100);
+        
     }
 }

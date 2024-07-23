@@ -1,6 +1,5 @@
 using EfDapperComparison;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Npgsql;
 using System.Data;
 
