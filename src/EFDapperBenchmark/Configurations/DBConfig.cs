@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EFDapperBenchmark.Configurations
 {
-    internal class DBConfig
+    public class DBConfig
     {
         public const string ConnectionString = "Host=localhost;Database=performancetestdb;Username=postgres;Password=123";
     }

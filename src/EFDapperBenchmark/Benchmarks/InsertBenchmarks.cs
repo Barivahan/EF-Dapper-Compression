@@ -10,8 +10,7 @@ namespace EFDapperBenchmark.Benchmarks
     [MemoryDiagnoser]
     public class InsertBenchmarks
     {
-        private const string ConnectionString = "Host=localhost;Database=performancetestdb;Username=postgres;Password=123";
-
+        
         [Benchmark]
         public TestRecord GetRecordByIdEFCore()
         {
@@ -22,7 +21,7 @@ namespace EFDapperBenchmark.Benchmarks
         [Benchmark]
         public TestRecord GetRecordByIdDapper()
         {
-            using var connection = new NpgsqlConnection(ConnectionString);
+            using var connection = new NpgsqlConnection(DBConfig.ConnectionString);
             return connection.QueryFirstOrDefault<TestRecord>("SELECT * FROM testrecords WHERE id = @Id", new { Id = 1 });
         }
 
@@ -38,7 +37,7 @@ namespace EFDapperBenchmark.Benchmarks
         [Benchmark]
         public int InsertRecordDapper()
         {
-            using var connection = new NpgsqlConnection(ConnectionString);
+            using var connection = new NpgsqlConnection(DBConfig.ConnectionString);
             return connection.Execute("INSERT INTO testrecords (createddate) VALUES (@CreatedDate)",
                 new { CreatedDate = DateTime.UtcNow });
         }

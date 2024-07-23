@@ -1,5 +1,6 @@
 ﻿using BenchmarkDotNet.Attributes;
 using Dapper;
+using EFDapperBenchmark.Configurations;
 using EfDapperComparison;
 using Npgsql;
 
@@ -10,15 +11,13 @@ namespace ORMPerformanceComparison.Benchmarks
     
     public class UpdateBenchmarks
     {
-        private const string ConnectionString = "Host=localhost;Database=performancetestdb;Username=postgres;Password=123";
-
-
+        
         private List<int> _batchIds = new List<int>();
 
         [GlobalSetup]
         public void Setup()
         {
-            using var connection = new NpgsqlConnection(ConnectionString);
+            using var connection = new NpgsqlConnection(DBConfig.ConnectionString);
             var count = connection.ExecuteScalar<int>("SELECT COUNT(*) FROM testrecords");
             if (count < 1000)
             {
@@ -41,7 +40,7 @@ namespace ORMPerformanceComparison.Benchmarks
         [Benchmark]
         public void UpdateSingleRecordDapper()
         {
-            using var connection = new NpgsqlConnection(ConnectionString);
+            using var connection = new NpgsqlConnection(DBConfig.ConnectionString);
             var record = connection.QueryFirst<TestRecord>("SELECT * FROM testrecords LIMIT 1");
             connection.Execute("UPDATE testrecords SET createddate = @CreatedDate WHERE id = @Id",
                 new { CreatedDate = DateTime.UtcNow, Id = record.Id });
@@ -62,7 +61,7 @@ namespace ORMPerformanceComparison.Benchmarks
         [Benchmark]
         public void UpdateBatchDapper()
         {
-            using var connection = new NpgsqlConnection(ConnectionString);
+            using var connection = new NpgsqlConnection(DBConfig.ConnectionString);
             connection.Open();
             using var transaction = connection.BeginTransaction();
 
