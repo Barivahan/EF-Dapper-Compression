@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EfDapperComparisonWebApi", "EfDapperComparison\EfDapperComparisonWebApi.csproj", "{347D0B37-B97A-42CD-B3B0-A9494639DA52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EfDapperComparisonWebApi", "src\EfDapperComparisonWebApi\EfDapperComparisonWebApi.csproj", "{347D0B37-B97A-42CD-B3B0-A9494639DA52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadClient", "LoadClient\LoadClient.csproj", "{BA439F39-5A56-43E8-9BE5-BFE87EAFE02C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadClient", "src\LoadClient\LoadClient.csproj", "{BA439F39-5A56-43E8-9BE5-BFE87EAFE02C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDapperBenchmark", "EFDapperBenchmark\EFDapperBenchmark.csproj", "{A50781C3-9886-4881-B028-B856EDE1488B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDapperBenchmark", "src\EFDapperBenchmark\EFDapperBenchmark.csproj", "{A50781C3-9886-4881-B028-B856EDE1488B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
