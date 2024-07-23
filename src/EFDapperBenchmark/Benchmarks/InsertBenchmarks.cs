@@ -1,13 +1,14 @@
 ﻿using BenchmarkDotNet.Attributes;
 using Dapper;
+using EFDapperBenchmark.Configurations;
 using EfDapperComparison;
 using Npgsql;
 
 
-namespace ORMPerformanceComparison.Benchmarks
+namespace EFDapperBenchmark.Benchmarks
 {
     [MemoryDiagnoser]
-    public class ORMBenchmark
+    public class InsertBenchmarks
     {
         private const string ConnectionString = "Host=localhost;Database=performancetestdb;Username=postgres;Password=123";
 
