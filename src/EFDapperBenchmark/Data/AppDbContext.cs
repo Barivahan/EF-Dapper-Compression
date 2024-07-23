@@ -1,4 +1,5 @@
-﻿using EfDapperComparison;
+﻿using EFDapperBenchmark.Configurations;
+using EfDapperComparison;
 using Microsoft.EntityFrameworkCore;
 
 public class AppDbContext : DbContext
@@ -7,7 +8,7 @@ public class AppDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseNpgsql("Host=localhost;Database=performancetestdb;Username=postgres;Password=123");
+        optionsBuilder.UseNpgsql(DBConfig.ConnectionString);
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
