@@ -28,7 +28,7 @@ Before running the benchmarks, ensure you have the following installed:
    cd ORMPerformanceComparison
 2. Configure the connection string in DbConfig.cs
   ```c#
-   public const string ConnectionString = "Host=localhost;Database=performancetestdb;Username=postgres;Password=123";
+     public const string ConnectionString = "Host=localhost;Database=performancetestdb;Username=postgres;Password=123";
 ```
 3. Restore NuGet packages:
    ```bash
