@@ -1,5 +1,4 @@
-﻿using RestSharp;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
 Console.WriteLine("Starting load test...");
 
