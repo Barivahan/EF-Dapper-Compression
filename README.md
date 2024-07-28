@@ -24,7 +24,7 @@ Before running the benchmarks, ensure you have the following installed:
 ## Getting Started
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/ORMPerformanceComparison.git
+   git clone https://github.com/barivahan/ORMPerformanceComparison.git
    cd ORMPerformanceComparison
 2. Configure the connection string in DbConfig.cs
   ```c#
